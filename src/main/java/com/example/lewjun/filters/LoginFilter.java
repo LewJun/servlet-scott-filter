@@ -45,9 +45,9 @@ public class LoginFilter implements Filter {
       if (session == null || session.getAttribute("loginUser") == null) {
         // 判断是否为ajax请求
         if (req.getHeader("x-requested-with") != null) {
-          ServletUtils.failure(resp, EnumApiResultCode.USER_NOT_LOGGED_IN);
+          ServletUtils.failure(EnumApiResultCode.USER_NOT_LOGGED_IN);
         } else {
-          ServletUtils.forward(req, resp, "/user/login");
+          ServletUtils.forward("/user/login");
         }
         return;
       }
